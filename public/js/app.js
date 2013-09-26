@@ -1,8 +1,12 @@
-require(['model', 'Vertex'], function(model, Vertex) {
-  model.on('add', function() {
-    console.log('aaaaadd!');
-  });
-  model.add(new Vertex());
+require(['model', 'view', 'Vertex'], function(model, view, Vertex) {
 
-  console.log(model);
+
+  canvas.addEventListener('click', function(e) {
+    var vertex = new Vertex();
+    vertex.set('x', e.pageX);
+    vertex.set('y', e.pageY);
+    model.add(vertex);
+  });
+
+
 });
