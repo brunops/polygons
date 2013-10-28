@@ -2,8 +2,7 @@
 Messing with canvas using
 * Backbone
 * Underscore
-* Requirejs
+* RequireJS
 
 while doing some polygons in the process..
 
----
