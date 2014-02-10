@@ -1,4 +1,12 @@
+
 .ascii-title {
   font-size: 123.1%;
   font-weight: bold;
+}
+
+.canvas-wrapper {
+  border: 10px solid black;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
 }
