@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Polygons</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="http://bit.ly/jqsource"></script>
+  <script src="js/lib/underscore.js"></script>
+  <script src="js/lib/backbone.js"></script>
+  <script data-main="js/app" src="js/lib/require.js"></script>
+  <script>
+    require.config({
+      urlArgs: "bust=" + Date.now()
+    })
+  </script>
+</head>
+<body>
+  <div class="ascii-title"><pre>
+               _
+   _ __   ___ | |_   _  __ _  ___  _ __  ___
+  | '_ \ / _ \| | | | |/ _` |/ _ \| '_ \/ __|
+  | |_) | (_) | | |_| | (_| | (_) | | | \__ \
+  | .__/ \___/|_|\__, |\__, |\___/|_| |_|___/
+  |_|            |___/ |___/
+  </pre></div>
+
+  <canvas id="canvas" width="800px" height="800px"></canvas>
+</body>
+</html>
