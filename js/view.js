@@ -3,6 +3,18 @@ define(['model'], function(model) {
       radius = 15;
 
   function render() {
+    var prev;
+    model.each(function(curr) {
+      if (prev) {
+        c.beginPath();
+        c.moveTo(prev.get('x'), prev.get('y'));
+        c.lineTo(curr.get('x'), curr.get('y'));
+        c.closePath();
+        c.stroke();
+      }
+      prev = curr;
+    });
+
     model.each(renderVertex);
   }
 
