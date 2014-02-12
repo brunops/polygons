@@ -3,6 +3,8 @@ define(['model'], function(model) {
 
   function render() {
     var prev;
+
+    c.clearRect(0, 0, canvas.width, canvas.height);
     model.each(function(curr) {
       if (prev) {
         c.beginPath();
@@ -24,4 +26,6 @@ define(['model'], function(model) {
   }
 
   model.on('add', render);
+  model.on('change', render);
 });
+
