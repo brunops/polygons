@@ -5,11 +5,25 @@ require(['model', 'view', 'Vertex'], function(model, view, Vertex) {
       canvasLeft = canvasPos.left;
 
 
+  function findVertexUnderPoint(x, y) {
+    return model.find(function(vertex) {
+      return vertex.contains(x, y);
+    });
+  }
+
   canvas.addEventListener('click', function(e) {
-    var vertex = new Vertex();
-    vertex.set('x', e.pageX - canvasLeft);
-    vertex.set('y', e.pageY - canvasTop);
-    model.add(vertex);
+    var x = e.pageX - canvasLeft,
+        y = e.pageY - canvasTop;
+
+    var vertexBeingDragged = findVertexUnderPoint(x, y);
+    if (vertexBeingDragged) {
+    }
+    else {
+      var vertex = new Vertex();
+      vertex.set('x', x); 
+      vertex.set('y', y); 
+      model.add(vertex);
+    }
   });
 
 
