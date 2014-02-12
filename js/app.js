@@ -3,6 +3,8 @@ require(['model', 'view', 'Vertex'], function(model, view, Vertex) {
   var canvasPos  = $(canvas).position(),
       canvasTop  = canvasPos.top,
       canvasLeft = canvasPos.left,
+      dragStartX,
+      dragStartY,
       vertexBeingDragged;
 
 
@@ -17,7 +19,11 @@ require(['model', 'view', 'Vertex'], function(model, view, Vertex) {
         y = e.pageY - canvasTop;
 
     vertexBeingDragged = findVertexUnderPoint(x, y);
-    if (!vertexBeingDragged) {
+    if (vertexBeingDragged) {
+      dragStartX = vertexBeingDragged.get('x'); 
+      dragStartY = vertexBeingDragged.get('y'); 
+    }
+    else {
       var vertex = new Vertex();
       vertex.set('x', x); 
       vertex.set('y', y); 
@@ -38,6 +44,12 @@ require(['model', 'view', 'Vertex'], function(model, view, Vertex) {
   });
 
   canvas.addEventListener('mouseup', function(e) {
+    if (vertexBeingDragged) {
+      if (dragStartX === vertexBeingDragged.get('x')
+        && dragStartY === vertexBeingDragged.get('y')) {
+        model.remove(vertexBeingDragged);
+      }
+    } 
     vertexBeingDragged = null;
   });
 

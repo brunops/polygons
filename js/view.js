@@ -24,6 +24,7 @@ define(['model'], function(model) {
   }
 
   model.on('add', render);
+  model.on('remove', render);
   model.on('change', render);
 });
 
