@@ -2,17 +2,15 @@ define(['model'], function(model) {
   var c = canvas.getContext('2d');
 
   function render() {
-    var prev;
-
     c.clearRect(0, 0, canvas.width, canvas.height);
+
+    var prev = model.last();
     model.each(function(curr) {
-      if (prev) {
-        c.beginPath();
-        c.moveTo(prev.get('x'), prev.get('y'));
-        c.lineTo(curr.get('x'), curr.get('y'));
-        c.closePath();
-        c.stroke();
-      }
+      c.beginPath();
+      c.moveTo(prev.get('x'), prev.get('y'));
+      c.lineTo(curr.get('x'), curr.get('y'));
+      c.closePath();
+      c.stroke();
       prev = curr;
     });
 
